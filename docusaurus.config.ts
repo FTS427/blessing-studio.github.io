@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Lunova Docs',
   tagline: 'Lunova Studio 官方文档站！🥳🥳🥳',
-  favicon: 'https://lunova.studio/wp-content/uploads/2025/03/lunova_icon_bold_black@svg.svg',
+  favicon: 'https://lunova.studio/wp-content/uploads/2025/03/lunova_icon_bold_whait@svg.svg',
 
   // Set up your website's production URL here
   url: 'https://lunova-studio.github.io',
@@ -80,7 +80,7 @@ const config: Config = {
       title: 'Lunova Docs',
       logo: {
         alt: 'Lunova Docs Logo',
-        src: 'img/BlessingStudio.png',
+        src: 'https://lunova.studio/wp-content/uploads/2025/03/lunova_icon_bold_black@svg.svg',
       },
       items: [
         {
