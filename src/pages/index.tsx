@@ -19,7 +19,7 @@ function HomepageHeader() {
           <svg viewBox="-35 -25 100 100" className={styles.backgroundAnimateSecondary} xmlns="http://www.w3.org/2000/svg">
             <path className={styles.svgPathSecondary} d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"/>
           </svg>
-          <img className={styles.heroLogo} src="img/BlessingStudio.png" alt="Blessing Studio Icon"/>
+          <img className={styles.heroLogo} src="https://lunova.studio/wp-content/uploads/2025/03/矢量-19.svg" alt="Blessing Studio Icon"/>
           <Heading as="h1" className="hero__title">
             {siteConfig.title}
           </Heading>
@@ -27,7 +27,7 @@ function HomepageHeader() {
           <div className={styles.buttons}>
             <Link
               className="button button--secondary button--lg"
-              to="https://github.com/Blessing-Studio">
+              to="https://github.com/Lunova-Studio">
               查看我们的GitHub页面
             </Link>
           </div>
@@ -62,7 +62,7 @@ function HomepageSupport() {
             </Link>
             <Link
               className={clsx('button button--secondary button--lg', styles.button)}
-              to="https://github.com/Blessing-Studio">
+              to="https://github.com/Lunova-Studio">
               算了还是GitHub issues和Discussions吧😨
             </Link>
           </div>
@@ -75,8 +75,8 @@ export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Blessing.Docs 🥳`}
-      description="快速帮助使用Blessing Studio的各种项目awa">
+      title={`Lunova Docs 🥳`}
+      description="快速帮助使用Lunova Studio的各种项目awa">
       <HomepageHeader />
       <main>
         <div className={styles.mainDiv}>

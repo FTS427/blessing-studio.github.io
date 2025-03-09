@@ -22,7 +22,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'WonderLab',
-    img: 'https://blessing-studio.cn/wp-content/uploads/2025/01/IMG_2200.png',
+    img: 'https://lunova.studio/wp-content/uploads/2025/02/IMG_2186.png',
     description: '第三方 Minecraft 启动器',
     alt: 'WonderLab Logo',
     link: '/docs/WonderLab'
