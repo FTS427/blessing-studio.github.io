@@ -81,7 +81,7 @@ const config: Config = {
     announcementBar: {
       id: 'new-studio',
       content:
-        'Blessing Studio 已经更名为 Lunova Studio，感谢各位一直以来的支持',
+        'Blessing Studio 已经更名为 Lunova Studio，感谢各位一直以来的支持，请访问新站点 lunova.studio',
       backgroundColor: '#D80000',
       textColor: '#ffffff',
       isCloseable: true,
