@@ -66,6 +66,18 @@ const config: Config = {
   ],
 
   themeConfig: {
+    htmlTags: {
+      headTags: [
+        {
+          tagName: 'script',
+          attributes: {
+            defer: true,
+            src: 'https://umami.lunova.studio/script.js',
+            'data-website-id': '60822bf6-7e18-4326-933f-ad367754f54b'
+          }
+        }
+      ]
+    },
     announcementBar: {
       id: 'new-studio',
       content:
