@@ -20,3 +20,20 @@ yarn-debug.log*
 yarn-error.log*
 
 .vscode
+
+# IDE configuration files
+.idea
+
+# Log files
+*.log
+
+# Temporary files
+*.temp
+
+# npm specific files
+package-lock.json
+.npm
+
+# Yarn specific files
+yarn.lock
+.pnp.*
