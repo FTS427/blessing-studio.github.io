@@ -21,6 +21,13 @@ const FeatureList: FeatureItem[] = [
     link: '/docs/MinecraftLaunch'
   },
   {
+    title: 'Monet',
+    img: 'https://blessing-studio.cn/wp-content/uploads/2025/02/IMG_2337.png',
+    description: '.NET Material You 风格颜色库',
+    alt: 'Monet Logo',
+    link: '/docs/Monet'
+  },
+  {
     title: 'WonderLab',
     img: 'https://lunova.studio/wp-content/uploads/2025/02/IMG_2200.png',
     description: '第三方 Minecraft 启动器',

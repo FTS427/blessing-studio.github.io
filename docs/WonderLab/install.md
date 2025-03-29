@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # 安装 WonderLab
 
 [WonderLab Releases 页](https://github.com/Lunova-Studio/WonderLab.Override/releases)
@@ -26,7 +30,7 @@
 
 ## Windows 平台
 
-通过本页的表格在 Releases 页中找到合适的文件下载，安装/解压 后即可食用
+通过本页的表格在 Releases 页中找到合适的文件下载，解压后即可食用
 
 ## Linux 平台
 
@@ -34,24 +38,25 @@
 
 增加 `AppImage` 文件的可执行权
 
-```zsh
+```sh
 chmod +x AppImage的路径
 ```
 
 然后在终端中输入 AppImage 的路径即可打开
 
-Arch Linux 系安装
+### Arch Linux 系安装
+
 > 请先确保您已经添加了 `AUR` 仓库，参考[这里](https://mirrors.tuna.tsinghua.edu.cn/help/archlinuxcn/)
 
-master
+master 分支
 
-```zsh
+```sh
 paru -S wonderlab-appimage
 ```
 
-feature
+feature 分支
 
-```zsh
+```sh
 paru -S wonderlab-appimage-feature
 ```
 

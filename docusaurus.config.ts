@@ -103,6 +103,12 @@ const config: Config = {
         },
         {
           type: 'docSidebar',
+          sidebarId: 'monetSidebar',
+          position: 'left',
+          label: 'Monet',
+        },
+        {
+          type: 'docSidebar',
           sidebarId: 'wonderLabSidebar',
           position: 'left',
           label: 'WonderLab',
@@ -113,7 +119,7 @@ const config: Config = {
           position: 'left',
           label: '设计规范',
         },
-        {to: '/blog', label: '博客日志', position: 'left'},
+        {to: '/blog', label: '博客日志', position: 'right'},
         {
           type: 'docSidebar',
           sidebarId: 'aboutSidebar',
@@ -154,6 +160,10 @@ const config: Config = {
             {
               label: 'WonderLab',
               to: '/docs/WonderLab',
+            },
+            {
+              label: 'Monet',
+              to: '/docs/Monet',
             },
             {
               label: '设计规范',
