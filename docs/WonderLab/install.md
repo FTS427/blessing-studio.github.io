@@ -1,6 +1,6 @@
 # 安装 WonderLab
 
-[WonderLab Releases 页](https://github.com/Blessing-Studio/WonderLab.Override/releases)
+[WonderLab Releases 页](https://github.com/Lunova-Studio/WonderLab.Override/releases)
 
 ## Releases 打包规则
 

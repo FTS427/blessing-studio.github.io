@@ -1,15 +1,15 @@
 <div align="center">
   <h1 align="center">
-    Blessing Studio 文档库
-    <br />
-    <br />
+    Lunova Studio 文档库
+    <br/>
+    <br/>
     <a href="https://wiki.blessing-studio.cn">
-      <img src="https://s21.ax1x.com/2025/02/08/pEmlhi6.png" alt="Wikiblo.png" border="0" />
+      <img src="https://s21.ax1x.com/2025/02/08/pEmlhi6.png" alt="Wikiblo.png" border="0"/>
     </a>
   </h1>
 </div>
 
-本网站使用 Docusaurus 构建，这是一款现代化的静态网站生成器。
+本网站使用 Docusaurus 构建，这是一款现代化的静态网站生成器
 
 ### 安装
 
