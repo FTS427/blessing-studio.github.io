@@ -3,7 +3,7 @@
     Lunova Studio 文档库
     <br/>
     <br/>
-    <a href="https://wiki.blessing-studio.cn">
+    <a href="https://docs.lunova.studio/">
       <img src="https://s21.ax1x.com/2025/02/08/pEmlhi6.png" alt="Wikiblo.png" border="0"/>
     </a>
   </h1>
@@ -13,36 +13,36 @@
 
 ### 安装
 
-```
-$ yarn
+```sh
+yarn
 ```
 
 ### 本地开发
 
-```
-$ yarn start
+```sh
+yarn start
 ```
 
-此命令会启动一个本地开发服务器，并打开一个浏览器窗口。大多数更改会实时反映出来，无需重启服务器。
+此命令会启动一个本地开发服务器，并打开一个浏览器窗口。大多数更改会实时反映出来，无需重启服务器
 
 ### 构建
 
-```
-$ yarn build
+```sh
+yarn build
 ```
 
-此命令会将静态内容生成到 build 目录中，并且可以使用任何静态内容托管服务进行部署。
+此命令会将静态内容生成到 build 目录中，并且可以使用任何静态内容托管服务进行部署
 
 ### 部署
 
-使用 SSH：
+使用 ssh
 
-```
-$ USE_SSH=true yarn deploy
+```sh
+USE_SSH=true yarn deploy
 ```
 
-不使用 SSH：
+不使用 ssh
 
-```
-$ GIT_USER=<你的 GitHub 用户名> yarn deploy
+```sh
+GIT_USER=<你的 GitHub 用户名> yarn deploy
 ```
