@@ -4,7 +4,7 @@ title: 快速开始
 ---
 
 
-# MinecraftLaunch 功能指南
+# MinecraftLaunch 快速开始
 
 ## 基础配置
 
