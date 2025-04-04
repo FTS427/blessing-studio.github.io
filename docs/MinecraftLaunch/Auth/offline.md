@@ -9,8 +9,7 @@
 ## 初始化验证器
 
 ```csharp
-using MineacrftLaunch.Components.Authenticator;
-
+using MinecraftLaunch.Components.Authenticator;
 var account = new OfflineAuthenticator().Authenticate("PLAYER_NAME"); // `PLAYER_NAME` 换成所需要的玩家名称
 ```
 
