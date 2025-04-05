@@ -41,7 +41,11 @@ installer.ProgressChanged += (_, arg) => {
 ```csharp
 // 独立安装
 var minecraft = await installer.InstallAsync();
+```
 
+你可以按照以上的代码对 Optofine 进行独立安装，或者采用下方的代码联合 Forge 进行安装
+
+```csharp
 // 与 Forge 联合安装
 var minecraft = await installer.InstallAsync(forgeVersion);
 ```
