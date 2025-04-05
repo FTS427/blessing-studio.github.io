@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # 微软正版验证
 
 该验证类型实现了微软 Xbox Live 和 Minecraft 的完整验证流程，用于正版账户登录。

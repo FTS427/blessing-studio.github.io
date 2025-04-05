@@ -1,0 +1,8 @@
+{
+  "label": "Java 运行时",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "在该章节中学习Java 运行时的管理."
+  }
+}

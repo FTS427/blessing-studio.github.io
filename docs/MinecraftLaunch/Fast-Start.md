@@ -1,6 +1,5 @@
 ---
-sidebar_position: 3
-title: 快速开始
+sidebar_position: 2
 ---
 
 # ML 快速开始

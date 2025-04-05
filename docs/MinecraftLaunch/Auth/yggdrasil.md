@@ -1,3 +1,7 @@
+---
+sidebar_position: 4
+---
+
 # Yggdrasil 第三方验证
 
 Yggdrasil 验证实现了与 Mojang 验证服务器相同的验证协议，可用于连接第三方验证服务器（如 LittleSkin、AuthLib-Injector 等）。
