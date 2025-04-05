@@ -1,169 +1,151 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 title: 快速开始
 ---
 
+# ML 快速开始
 
-# MinecraftLaunch 快速开始
+本文档将帮助您快速上手 MinecraftLaunch (ML) 的核心功能。
 
-## 基础配置
+## 初始化配置
+
+在使用 ML 之前，建议先进行基础配置：
 
 ```csharp
-// 网络配置
-DownloadMirrorManager.MaxThread = 256;        // 最大并发下载线程
-DownloadMirrorManager.IsEnableMirror = false; // 是否启用下载镜像
-CurseforgeProvider.CurseforgeApiKey = "your_api_key"; // Curseforge API密钥
+using MinecraftLaunch;
 
-// HTTP初始化
+// 配置下载线程数和镜像源
+DownloadMirrorManager.MaxThread = 256;
+DownloadMirrorManager.IsEnableMirror = true; // 启用镜像源加速
+
+// 如果需要使用 Curseforge API
+CurseforgeProvider.CurseforgeApiKey = "Your Api Key";
+
+// 初始化 HTTP 工具
 HttpUtil.Initialize();
 ```
 
-## 核心功能模块
+## 基础功能
 
-### 1. 原版游戏安装器
-**用途**：安装纯净版 Minecraft
-
-**参数列表**：
-- `.minecraft`：游戏根目录路径
-- `entry`：通过 `VanillaInstaller.EnumerableMinecraftAsync()` 获取的版本条目
+### 1. 原版游戏安装
 
 ```csharp
-var entry = await VanillaInstaller.EnumerableMinecraftAsync()
+// 获取版本信息
+var version = await VanillaInstaller.EnumerableMinecraftAsync()
     .FirstAsync(x => x.Id == "1.20.1");
 
-var installer = VanillaInstaller.Create(
-    minecraftPath: ".minecraft", 
-    entry: entry
-);
+// 创建安装器
+var installer = VanillaInstaller.Create(".minecraft", version);
 
-installer.ProgressChanged += (_, arg) => 
-    Console.WriteLine($"{arg.StepName} - 进度: {arg.Progress * 100:0.00}%");
+// 监听进度
+installer.ProgressChanged += (_, arg) => {
+    Console.WriteLine($"{arg.StepName} - {arg.Progress:P2}");
+};
 
-var minecraft = await installer.InstallAsync();
+// 开始安装
+var result = await installer.InstallAsync();
 ```
 
-### 2. Forge 安装器
-**用途**：安装 Forge 模组加载器
-
-**参数列表**：
-- `.minecraft`：游戏根目录路径
-- `javaPath`：Java 执行文件路径（推荐 JDK 8）
-- `entry`：通过 `ForgeInstaller.EnumerableForgeAsync()` 获取的版本条目
+### 2. 模组加载器安装
 
 ```csharp
-var forgeEntry = await ForgeInstaller.EnumerableForgeAsync(
-    mcVersion: "1.20.1", 
-    isSnapshot: true
-).FirstAsync();
-
-var installer = ForgeInstaller.Create(
-    minecraftPath: ".minecraft",
-    javaPath: "/path/to/java.exe", 
-    entry: forgeEntry
+// Forge 安装示例
+var forge = await ForgeInstaller.EnumerableForgeAsync("1.20.1", true)
+    .FirstOrDefaultAsync();
+var forgeInstaller = ForgeInstaller.Create(
+    ".minecraft", 
+    "java.exe",
+    forge
 );
+
+// Fabric 安装示例
+var fabric = await FabricInstaller.EnumerableFabricAsync("1.20.1")
+    .FirstOrDefaultAsync();
+var fabricInstaller = FabricInstaller.Create(".minecraft", fabric);
 ```
 
-### 3. 整合包安装（Curseforge）
-**用途**：安装 Curseforge 整合包
-
-**参数列表**：
-- `minecraftPath`：游戏根目录
-- `modpackPath`：整合包 ZIP 文件路径
-- `entry`：通过 `ParseModpackInstallEntry()` 解析的条目
-- `targetMinecraft`：目标 Minecraft 版本
+### 3. 账户验证
 
 ```csharp
-var modpackEntry = CurseforgeModpackInstaller.ParseModpackInstallEntry(
-    @"path/to/modpack.zip"
-);
+// 离线验证
+var offlineAccount = new OfflineAuthenticator()
+    .Authenticate("PlayerName");
 
-var installer = CurseforgeModpackInstaller.Create(
-    minecraftPath: ".minecraft",
-    modpackPath: @"path/to/modpack.zip",
-    entry: modpackEntry,
-    targetMinecraft: new MinecraftParser(".minecraft").GetMinecraft("1.20.1")
-);
-```
-
-### 4. 微软账户验证
-**用途**：实现微软账户登录验证
-
-**参数列表**：
-- `clientId`：Azure 应用注册的客户端 ID
-- `UserCode`：设备流验证码
-- `VerificationUrl`：验证网址
-
-```csharp
-var authenticator = new MicrosoftAuthenticator("your_client_id");
-var oAuth2Token = await authenticator.DeviceFlowAuthAsync(x => {
-    Console.WriteLine($"访问 {x.VerificationUrl} 输入代码: {x.UserCode}");
+// 微软验证
+var msAuth = new MicrosoftAuthenticator("CLIENT_ID");
+var oAuth2Token = await msAuth.DeviceFlowAuthAsync(code => {
+    Console.WriteLine($"请访问: {code.VerificationUrl}");
+    Console.WriteLine($"输入代码: {code.UserCode}");
 });
-
-var account = await authenticator.AuthenticateAsync(oAuth2Token);
+var msAccount = await msAuth.AuthenticateAsync(oAuth2Token);
 ```
 
-### 5. 游戏启动器
-**用途**：启动 Minecraft 实例
-
-**参数列表**：
-- `Account`：验证器获取的账户对象
-- `MaxMemorySize`：最大分配内存（MB）
-- `JavaPath`：Java 运行时路径
-- `SaveName`：存档名称
+### 4. 游戏启动
 
 ```csharp
 var runner = new MinecraftRunner(new LaunchConfig {
-    Account = new OfflineAuthenticator().Authenticate("PlayerName"),
+    Account = account,
     MaxMemorySize = 4096,
     JavaPath = JavaUtil.EnumerableJava().First(),
-    SaveName = "MyWorld"
+    WindowSize = new(1280, 720)
 }, ".minecraft");
 
-var process = await runner.RunAsync(minecraftEntry);
+var process = await runner.RunAsync(gameCore);
 ```
 
 ## 高级功能
 
 ### 复合安装器
-**用途**：组合安装多个模组加载器
-
-**参数列表**：
-- `entries`：安装条目数组（支持 Vanilla/Forge/Optifine 等）
-- `javaPath`：Java 执行路径
-- `versionName`：自定义版本名称
 
 ```csharp
-var compositeInstaller = CompositeInstaller.Create(
-    entries: [vanillaEntry, forgeEntry, optifineEntry],
-    minecraftPath: ".minecraft",
-    javaPath: "/path/to/java.exe",
-    versionName: "Custom_Pack"
+var installer = CompositeInstaller.Create(
+    ".minecraft",
+    "java.exe",
+    new[] { 
+        vanillaEntry,
+        forgeEntry,
+        optifineEntry 
+    }
 );
 ```
 
+### 整合包安装
+
+```csharp
+// Curseforge 整合包
+var cfInstaller = CurseforgeModpackInstaller.Create(
+    ".minecraft",
+    "modpack.zip",
+    "java.exe"
+);
+
+// Modrinth 整合包
+var mrInstaller = ModrinthModpackInstaller.Create(
+    ".minecraft",
+    "modpack.mrpack",
+    "java.exe"
+);
+```
+
+:::tip
+所有安装器都支持进度回调，可以通过 `ProgressChanged` 事件监听安装进度
+:::
+
 ## 配置建议
 
-1. **路径规范**
-   ```csharp
-   // 推荐使用绝对路径
-   var minecraftPath = Path.Combine(Environment.GetFolderPath(
-       Environment.SpecialFolder.ApplicationData), 
-       ".minecraft");
-   ```
+1. 在生产环境中建议：
+   - 启用镜像源加速下载
+   - 适当调整下载线程数
+   - 正确配置 Java 运行时路径
 
-2. **Java 检测**
-   ```csharp
-   // 自动检测所有已安装 Java
-   var javas = await JavaUtil.EnumerableJavaAsync().ToListAsync();
-   var suitableJava = minecraftEntry.GetAppropriateJava(javas);
-   ```
+2. 在开发环境中建议：
+   - 使用离线验证进行测试
+   - 设置合适的日志级别
+   - 处理可能的异常情况
 
-3. **错误处理**
-   ```csharp
-   try {
-       await installer.InstallAsync();
-   } 
-   catch (Exception ex) {
-       Console.WriteLine($"安装失败: {ex.Message}");
-   }
-   ```
+:::warning
+请确保：
+- 有足够的磁盘空间
+- 正确的文件权限
+- 稳定的网络连接
+:::
