@@ -82,7 +82,7 @@ var msAccount = await msAuth.AuthenticateAsync(oAuth2Token);
 ### 4. 游戏启动
 
 ```csharp
-var runner = new MinecraftRunner(new LaunchConfig {
+var runner = new MinecraftRunner(new LaunchConfig() {
     Account = account,
     MaxMemorySize = 4096,
     JavaPath = JavaUtil.EnumerableJava().First(),
