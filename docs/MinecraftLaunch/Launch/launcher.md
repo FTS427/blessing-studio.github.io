@@ -17,13 +17,18 @@ var config = new LaunchConfig() {
     Account = account,                    // 账户实例
     MaxMemorySize = 4096,                // 最大内存(MB)
     MinMemorySize = 1024,                // 最小内存(MB)
-    JavaPath = "/usr/bin/java",          // Java路径
+    JavaPath = javaUtil,          // Java路径
     WindowSize = new(1280, 720),         // 窗口大小
     ServerAddress = "localhost:25565",    // 服务器地址(可选)
     LauncherName = "MyLauncher",         // 启动器名称
     IsFullScreen = false                 // 是否全屏
 };
 ```
+
+:::tip
+- account 代指一个 Account 的实例或其子类的实例.
+- javaUtil 代指一个 JavaUtil的实例或其子类的实例.
+:::
 
 ## 启动游戏
 
