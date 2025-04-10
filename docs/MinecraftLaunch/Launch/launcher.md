@@ -13,7 +13,7 @@ using MinecraftLaunch.Components;
 using MinecraftLaunch.Base.Models.Launch;
 
 // 创建启动配置
-var config = new LaunchConfig {
+var config = new LaunchConfig() {
     Account = account,                    // 账户实例
     MaxMemorySize = 4096,                // 最大内存(MB)
     MinMemorySize = 1024,                // 最小内存(MB)
