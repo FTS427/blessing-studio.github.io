@@ -50,15 +50,16 @@ Console.WriteLine($"安装完成: {minecraft.Id}");
 | 组件 1 | 组件 2 | 组件 3 | 说明 |
 |--------|--------|--------|------|
 | Forge | OptiFine | - | 最常用的组合 |
-| Fabric | - | - | 不支持与其他组件组合 |
+| Fabric | OptiFabric | OptiFine | 与 OptiFine 组合必须先安装 OptiFabric Mod，不支持与其他组件组合 |
 | Quilt | - | - | 不支持与其他组件组合 |
 
 :::warning
 使用复合安装器时需注意
 
 1. 确保所有组件版本相互兼容
-2. Fabric/Quilt 不支持与其他组件组合
-3. 需要提供合适的 Java 运行时
+2. Fabric 与 OptiFine 组合必须先安装OptiFabric Mod
+3. Quilt 不支持与其他组件组合
+4. 需要提供合适的 Java 运行时
 
 :::
 
