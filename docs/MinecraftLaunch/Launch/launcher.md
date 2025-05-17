@@ -11,17 +11,19 @@ ML 提供了强大的启动器核心功能，支持各类游戏版本和账户�
 ```csharp
 using MinecraftLaunch.Components;
 using MinecraftLaunch.Base.Models.Launch;
+using MinecraftLaunch.Base.Models.Game;
 
 // 创建启动配置
 var config = new LaunchConfig() {
-    Account = account,                    // 账户实例
-    MaxMemorySize = 4096,                // 最大内存(MB)
-    MinMemorySize = 1024,                // 最小内存(MB)
-    JavaPath = javaUtil,          // Java路径
-    WindowSize = new(1280, 720),         // 窗口大小
-    ServerAddress = "localhost:25565",    // 服务器地址(可选)
-    LauncherName = "MyLauncher",         // 启动器名称
-    IsFullScreen = false                 // 是否全屏
+    Account = account,                                                           // 账户实例
+    MaxMemorySize = 4096,                                                        // 最大内存(MB)
+    MinMemorySize = 1024,                                                        // 最小内存(MB)
+    JavaPath = javaUtil,                                                         // Java路径
+    WindowWidth = 1280,                                                          // 窗口宽度
+    WindowHeight = 720,                                                          // 窗口高度
+    ServerAddress = new ServerInfo() { Address = "localhost", Port = 25565 },    // 服务器地址(可选)
+    LauncherName = "MyLauncher",                                                 // 启动器名称
+    IsFullScreen = false                                                         // 是否全屏
 };
 ```
 
