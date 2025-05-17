@@ -19,8 +19,8 @@ var config = new LaunchConfig() {
     MaxMemorySize = 4096,                                                        // 最大内存(MB)
     MinMemorySize = 1024,                                                        // 最小内存(MB)
     JavaPath = javaUtil,                                                         // Java路径
-    WindowWidth = 1280,                                                          // 窗口宽度
-    WindowHeight = 720,                                                          // 窗口高度
+    Width = 1280,                                                                // 窗口宽度
+    Height = 720,                                                                // 窗口高度
     ServerAddress = new ServerInfo() { Address = "localhost", Port = 25565 },    // 服务器地址(可选)
     LauncherName = "MyLauncher",                                                 // 启动器名称
     IsFullScreen = false                                                         // 是否全屏
