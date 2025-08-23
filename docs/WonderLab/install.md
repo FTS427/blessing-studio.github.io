@@ -8,25 +8,25 @@ sidebar_position: 2
 
 ## Releases 打包规则
 
-### 自动构建版本 - master & 自动构建版本 - bugFixing
+### 自动构建版本 - main & 自动构建版本 - bugFixing
 
 | 系统 | 打包结果名称 | 注释 |
 | ---- | ------------ | ---- |
-| Windows   | wonderlab.`版本号`.win.-`架构`.installer.exe | 安装文件 |
-| Windows   | wonderlab.`版本号`.linux-`架构`.zip          | zip压缩文件 |
+| Windows   | wonderlab.`版本号`.win-`架构`.installer.exe | 安装文件 |
+| Windows   | wonderlab.`版本号`.win-`架构`.zip          | zip压缩文件 |
 | Linux通用 | wonderlab.`版本号`.linux-`架构`.AppImage     | AppImage可执行文件 |
 | Debian系  | wonderlab.`版本号`.linux-`架构`.deb          | deb安装文件 |
 | RedHat系  | wonderlab.`版本号`.linux-`架构`.rpm          | rpm安装文件 |
 | Mac OS    | wonderlab.`版本号`.osx-`架构`.zip           | zip压缩文件 |
 | Mac OS    | wonderlab.`版本号`.osx.app-`架构`.zip       | app应用程序 |
 
-### feature 分支 - 测试渠道
+### dev 分支 - 测试渠道
 
 | 系统 | 打包结果名称 | 注释 |
 | ---- | ------------ | ---- |
-| Windows | WonderLab.`版本号`.linux-`架构`.zip          | zip压缩文件 |
-| Linux   | WonderLab.`版本号`.linux-`架构`.AppImage     | AppImage可执行文件 |
-| Mac OS  | WonderLab.`版本号`.osx-`架构`.zip           | zip压缩文件 |
+| Windows | WonderLab.win.`架构`.zip          | zip压缩文件 |
+| Linux   | WonderLab.linux.`架构`.AppImage     | AppImage可执行文件 |
+| Mac OS  | WonderLab.osx.`架构`.dmg           | app 应用程序 |
 
 ## Windows 平台
 
