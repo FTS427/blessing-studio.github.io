@@ -8,7 +8,7 @@ sidebar_position: 4
 
 本项目所支持的硬件平台: x86_64, ARM
 
-本项目所支持的操作系统: Windows 10 及以上, Mac OS 11 及以上, Linux
+本项目所支持的操作系统: Windows 10 及以上, Mac OS 11 及以上, Linux ( glibc 和 musl 的系统我们均有支持 )
 
 ## 想反馈问题？ or 想提出新鲜的想法？
 
